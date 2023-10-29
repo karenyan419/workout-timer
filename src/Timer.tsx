@@ -6,7 +6,14 @@ const Timer = ()  => {
 
     const [time, setTime] = useState<number>(0);
 
-
+    useEffect(() => {
+        const interval = setInterval(() => {
+          setTime(time + 1);
+        }, 1000);
+        console.log(time);
+    
+        return () => clearInterval(interval);
+      }, []);
 
     const clickHandler = () => {
         // setMyNumber(myNumber + 1);
