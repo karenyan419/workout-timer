@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import TimeDisplay from "./TimeDisplay"
 import Start from "./Start"
+import Reset from "./Reset";
 
 const Timer = ()  => {
 
@@ -22,7 +23,7 @@ const Timer = ()  => {
     return <>
         <TimeDisplay time={time}/>
         <Start/>
-        {/* <Reset/> */}
+        <Reset timeChanger={setTime}/>
     </>
 }
 
