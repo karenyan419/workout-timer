@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 
-const Reset = (props: {timeChanger: Function})  => {
+const Reset = (props: {setTime: Function})  => {
 
 
     const clickHandler = () => {
-        props.timeChanger(0);
+        props.setTime(0);
     }
     
     return <button

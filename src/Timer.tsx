@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react"
 import TimeDisplay from "./TimeDisplay"
-import Start from "./Start"
+import StartStop from "./StartStop"
 import Reset from "./Reset";
 
 const Timer = ()  => {
 
     const [time, setTime] = useState<number>(300);
+    const [timerActive, setTimerActive] = useState<boolean>(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
-          setTime(time => time - 1);
+          console.log(timerActive);
+          setTime(time => time - (timerActive ? 1 : 0));
         }, 1000);
 
     
         return () => clearInterval(interval);
-      }, []);
+      }, [timerActive]);
 
     const clickHandler = () => {
         setTime(0);
@@ -22,8 +24,8 @@ const Timer = ()  => {
     
     return <>
         <TimeDisplay time={time}/>
-        <Start/>
-        <Reset timeChanger={setTime}/>
+        <StartStop timerActive={timerActive} setTimerActive={setTimerActive}/>
+        <Reset setTime={setTime}/>
     </>
 }
 
