@@ -13,7 +13,7 @@ const TimeDisplay = (props: {time: number})  => {
             }
             return input
         }
-        return `${hours}:${addZeroForTwoDigits(minutes)}:${addZeroForTwoDigits(seconds)}`
+        return `${addZeroForTwoDigits(hours)}:${addZeroForTwoDigits(minutes)}:${addZeroForTwoDigits(seconds)}`
 
     }
 

@@ -4,11 +4,11 @@ import Start from "./Start"
 
 const Timer = ()  => {
 
-    const [time, setTime] = useState<number>(0);
+    const [time, setTime] = useState<number>(300);
 
     useEffect(() => {
         const interval = setInterval(() => {
-          setTime(time => time + 1);
+          setTime(time => time - 1);
         }, 1000);
 
     
@@ -16,12 +16,13 @@ const Timer = ()  => {
       }, []);
 
     const clickHandler = () => {
-        // setMyNumber(myNumber + 1);
+        setTime(0);
     }
     
     return <>
         <TimeDisplay time={time}/>
         <Start/>
+        {/* <Reset/> */}
     </>
 }
 
