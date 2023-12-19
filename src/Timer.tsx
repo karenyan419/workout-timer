@@ -6,13 +6,14 @@ import Reset from "./Reset";
 const Timer = ()  => {
 
     const [time, setTime] = useState<number>(300);
+    const [timerDuration, setTimerDuration] = useState<number>(300);
     const [timerActive, setTimerActive] = useState<boolean>(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
           console.log(timerActive);
-          setTime(time => time - (timerActive ? 1 : 0));
-        }, 1000);
+          setTime(time => time - (timerActive ? 0.01 : 0));
+        }, 10);
 
     
         return () => clearInterval(interval);
@@ -24,8 +25,10 @@ const Timer = ()  => {
     
     return <>
         <TimeDisplay time={time}/>
-        <StartStop timerActive={timerActive} setTimerActive={setTimerActive}/>
-        <Reset setTime={setTime}/>
+        <div>
+          <StartStop timerActive={timerActive} setTimerActive={setTimerActive}/>
+          <Reset setTime={setTime} timerDuration={timerDuration} setTimerActive={setTimerActive}/>
+        </div>
     </>
 }
 
