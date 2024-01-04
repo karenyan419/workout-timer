@@ -5,13 +5,12 @@ import Reset from "./Reset";
 
 const Timer = ()  => {
 
-    const [time, setTime] = useState<number>(300);
-    const [timerDuration, setTimerDuration] = useState<number>(300);
+    const [timerDuration, setTimerDuration] = useState<number>(10);
+    const [time, setTime] = useState<number>(timerDuration);
     const [timerActive, setTimerActive] = useState<boolean>(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
-          console.log(timerActive);
           setTime(time => time - (timerActive ? 0.01 : 0));
         }, 10);
 
@@ -21,6 +20,11 @@ const Timer = ()  => {
 
     const clickHandler = () => {
         setTime(0);
+    }
+    console.log(time)
+    if (timerActive == true && time < 0) {
+      setTime(0);
+      setTimerActive(false);
     }
     
     return <>
