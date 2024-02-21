@@ -8,6 +8,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        <div>Countdown Timer</div>
         <Timer/>
       </header>
     </div>
